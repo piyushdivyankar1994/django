@@ -11,10 +11,12 @@ UserModel = get_user_model()
 
 class BaseBackend:
     def authenticate(self, request, **kwargs):
-        return None
+        raise NotImplementedError(
+            "This .authenticate(self, request, **kwargs) must be implemented."
+        )
 
     def get_user(self, user_id):
-        return None
+        raise NotImplementedError("This .get_user(self, ...) must be implemented.")
 
     def get_user_permissions(self, user_obj, obj=None):
         return set()
